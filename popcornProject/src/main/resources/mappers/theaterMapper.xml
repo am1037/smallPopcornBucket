@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TheaterDAO">
+
+    <select id="selectAllTheater" resultType="com.java4.popcorn.database.theater.TheaterVO">
+        select * from popcorn.theater
+    </select>
+
+    <select id="selectTheaterByCompanyAndId" resultType="com.java4.popcorn.database.theater.TheaterVO">
+        select * from popcorn.theater where theater_id = #{theater_id} and theater_company = #{theater_company}
+    </select>
+
+    <select id="selectTheatersByRegion" resultType="com.java4.popcorn.database.theater.TheaterVO">
+        select * from popcorn.theater where theater_region = #{theater_region}
+    </select>
+
+    <select id="selectTheaterRegions" resultType="java.lang.String">
+        select distinct theater_region from popcorn.theater t
+    </select>
+
+    <update id="updateTheaterCoordinates">
+        update popcorn.theater set coord_x = #{coord_x}, coord_y = #{coord_y} where theater_id = #{theater_id} and theater_company = #{theater_company}
+    </update>
+
+</mapper>

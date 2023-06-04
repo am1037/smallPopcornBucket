@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ScreenDAO">
+
+    <select id="selectAll" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen
+    </select>
+
+    <select id="selectByMovieId" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where movie_docid = #{movie_docid}
+    </select>
+
+    <select id="selectByTheater" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where theater_id = #{theater_id}
+    </select>
+
+    <select id="selectByDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where date = #{date}
+    </select>
+
+    <select id="selectByTheaterAndDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date}
+    </select>
+
+    <select id="selectByMovieIdAndDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where movie_docid = #{movie_docid} and date = #{date}
+    </select>
+
+    <select id="selectByMovieIdAndTheater" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where movie_docid = #{movie_docid} and theater_id = #{theater_id}
+    </select>
+
+    <select id="selectByMovieIdAndTheaterAndDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where movie_docid = #{movie_docid} and theater_id = #{theater_id} and date = #{date}
+    </select>
+
+    <select id="selectDistinctMovieIdByDate" resultType="java.lang.String">
+        select distinct movie_docid from popcorn.movie_screen where date = #{date}
+    </select>
+
+</mapper>
