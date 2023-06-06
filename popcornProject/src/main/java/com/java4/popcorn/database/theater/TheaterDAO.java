@@ -14,9 +14,15 @@ public class TheaterDAO {
     @Autowired
     SqlSessionTemplate my;
 
-    public List<TheaterVO> selectAllTheaterCode(){
+    //theater Id_company NNNN_CCCCC, theaterVO
+    public Map<String, TheaterVO> selectAllTheaterCode(){
         try {
-            return my.selectList("TheaterDAO.selectAllTheater");
+            List<TheaterVO> list = my.selectList("TheaterDAO.selectAllTheater");
+            Map<String, TheaterVO> map = new HashMap<>();
+            for(TheaterVO vo : list){
+                map.put(vo.getTheater_id() + "_" + vo.getTheater_company(), vo);
+            }
+            return map;
         } catch (Exception e) {
             e.printStackTrace();
         }

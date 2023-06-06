@@ -16,5 +16,6 @@ public class ScreenVO {
     String detail_url;
     String time_end;
     int pk;
+    String movieCd;
 
 }

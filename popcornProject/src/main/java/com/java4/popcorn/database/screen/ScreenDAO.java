@@ -81,11 +81,39 @@ public class ScreenDAO {
         map.put("movie_docid", movie);
         return my.selectList("ScreenDAO.selectByMovieIdAndTheater", map);
     }
+
     public List<ScreenVO> selectByMovieIdAndTheaterAndDate(String movie, String theater, String day) {
         Map<String, String> map = new HashMap<>();
         map.put("theater_id", theater);
         map.put("date", day);
         map.put("movie_docid", movie);
         return my.selectList("ScreenDAO.selectByMovieIdAndTheaterAndDate", map);
+    }
+
+    public Map<String, List<ScreenVO>> toMapByMovieId(List<ScreenVO> list){
+        Map<String, List<ScreenVO>> map = new HashMap<>();
+        list.forEach(v -> {
+            map.putIfAbsent(v.getMovie_docid(), new ArrayList<>());
+            map.get(v.getMovie_docid()).add(v);
+        });
+        return map;
+    }
+
+    public Map<String, List<ScreenVO>> toMapByTheater(List<ScreenVO> list){
+        Map<String, List<ScreenVO>> map = new HashMap<>();
+        list.forEach(v -> {
+            map.putIfAbsent(v.getTheater_id(), new ArrayList<>());
+            map.get(v.getMovie_docid()).add(v);
+        });
+        return map;
+    }
+
+    public Map<String, List<ScreenVO>> toMapByDate(List<ScreenVO> list){
+        Map<String, List<ScreenVO>> map = new HashMap<>();
+        list.forEach(v -> {
+            map.putIfAbsent(v.getDate(), new ArrayList<>());
+            map.get(v.getMovie_docid()).add(v);
+        });
+        return map;
     }
 }

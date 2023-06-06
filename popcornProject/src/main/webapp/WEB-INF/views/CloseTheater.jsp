@@ -14,11 +14,13 @@
 </head>
 <body>
     <div id="demo">
-
+        <button onclick="firstNth(5)">5개</button>
+        <button onclick="firstNth(10)">10개</button>
     </div>
     <script>
         let latitude;
         let longitude;
+        let theaters;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 function(position) {
@@ -26,6 +28,7 @@
                     longitude = position.coords.longitude;
                     console.log("Latitude: " + latitude);
                     console.log("Longitude: " + longitude);
+
                     $.ajax({
                         url: "calcDistance",
                         data: {
@@ -35,8 +38,7 @@
                         type: "GET",
                         success: function(data){
                             console.log("성공");
-                            console.log(data);
-                            $('#demo').html(data);
+                            theaters = JSON.parse(data);
                         },
                         error: function(xhr, status, err){
                             console.log("에러발생");
@@ -49,6 +51,10 @@
             );
         } else {
             console.log("Geolocation is not supported by this browser.");
+        }
+
+        function firstNth(n) {
+            console.log(theaters);
         }
     </script>
 </body>

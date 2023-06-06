@@ -5,3 +5,16 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+function getNavbar(element) {
+    $.ajax({
+        url: "navbar.jsp",
+        type: "GET",
+        success: function (data) {
+            element.html(data);
+        },
+        error: function (e) {
+            console.log("error while getting navbar")
+            console.log(e);
+        }
+    });
+}
