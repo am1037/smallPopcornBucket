@@ -48,7 +48,24 @@
                             let cards = document.querySelectorAll(".card-body");
                             for (let i in cards) {
                                 if (cards[i] instanceof HTMLElement) {
-                                    console.log(cards[i])
+                                    cards[i].querySelector(".card-title").innerHTML = jason.theatersName[i];
+                                    getScreenPercentages(jason.theaters[i], "20230606", function (data){
+                                        let titleMap = data.movieTitleMap;
+                                        let percentageMap = data.screensPercentageMap;
+                                        let order = data.order;
+
+                                        cards[i].querySelector(".distance").innerHTML = "거리 : "+ jason.distances[i].toFixed(3) + "km"
+
+                                        let content = `<table class="table-bordered container-fluid">
+                                                            <th>영화 제목</th><th>상영관 점유율</th><th>상세 정보</th>
+                                                        </thead><tbody>`;
+                                        for(let i of order){
+                                            //titleMap[i] + " : " + (100*percentageMap[i]).toFixed(2) + "%<br>";
+                                            content += toTableRow(titleMap[i], (100*percentageMap[i]).toFixed(2) + "%", i);
+                                        }
+                                        content += "</tbody></table>";
+                                        cards[i].querySelector(".schedule").innerHTML = content;
+                                    })
                                 }
                             }
 
@@ -75,7 +92,7 @@
                 },
                 type: "GET",
                 success: function(data){
-                    callback(data)
+                    callback(JSON.parse(data))
                 },
                 error: function(xhr, status, err){
                     console.log("에러발생");
@@ -83,6 +100,15 @@
             })
         }
 
+        function toTableRow(movieTitle, percentage, code) {
+            return `
+        <tr>
+            <td>\${movieTitle}</td>
+            <td>\${percentage}</td>
+            <td>\${code}<button onclick=""></button></td>
+        </tr>
+    `;
+        }
     </script>
 </head>
 <body>
@@ -93,16 +119,16 @@
     <button onclick="location.href='CloseTheater'">go to AlarmManagement</button>
 </div>
 
-<div class="main-content">
+<div class="main-content container-fluid">
     <div class="container p-5 my-5 border">
         <div class="card p-3 my-3">
             <div class="card-body">
                 <h4 class="card-title">1</h4>
+                <div class="inside-text distance">
+                    asd
+                </div>
                 <p class="card-text">
-                    <div class="inside-text">
-                        asd
-                    </div>
-                    <div class="inside-text">
+                    <div class="inside-text schedule">
 
                     </div>
                 </p>
@@ -112,11 +138,11 @@
         <div class="card p-3 my-3">
             <div class="card-body">
                 <h4 class="card-title">2</h4>
+                <div class="inside-text distance">
+                    asdddddd
+                </div>
                     <p class="card-text">
-                        <div class="inside-text">
-
-                        </div>
-                        <div class="inside-text">
+                        <div class="inside-text schedule">
 
                         </div>
                     </p>
@@ -126,11 +152,11 @@
         <div class="card p-3 my-3">
             <div class="card-body">
                 <h4 class="card-title">3</h4>
+                <div class="inside-text distance">
+                    asd
+                </div>
                     <p class="card-text">
-                        <div class="inside-text">
-
-                        </div>
-                        <div class="inside-text">
+                        <div class="inside-text schedule">
 
                         </div>
                     </p>
