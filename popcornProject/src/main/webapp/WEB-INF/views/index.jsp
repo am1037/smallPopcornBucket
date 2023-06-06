@@ -12,6 +12,7 @@
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,6 +23,7 @@
         let latitude;
         let longitude;
         let jason;
+        const url = '${pageContext.request.contextPath}';
 
         document.addEventListener("DOMContentLoaded", function(event) {
             getNavbar($('#div4navbar'));
@@ -49,7 +51,7 @@
                             for (let i in cards) {
                                 if (cards[i] instanceof HTMLElement) {
                                     cards[i].querySelector(".card-title").innerHTML = jason.theatersName[i];
-                                    getScreenPercentages(jason.theaters[i], "20230606", function (data){
+                                    getScreenPercentages(jason.theaters[i], "20230607", function (data){
                                         let titleMap = data.movieTitleMap;
                                         let percentageMap = data.screensPercentageMap;
                                         let order = data.order;
@@ -57,11 +59,11 @@
                                         cards[i].querySelector(".distance").innerHTML = "거리 : "+ jason.distances[i].toFixed(3) + "km"
 
                                         let content = `<table class="table-bordered container-fluid">
-                                                            <th>영화 제목</th><th>상영관 점유율</th><th>상세 정보</th>
+                                                            <th>영화 제목</th><th>상영관 점유율</th>
                                                         </thead><tbody>`;
                                         for(let i of order){
                                             //titleMap[i] + " : " + (100*percentageMap[i]).toFixed(2) + "%<br>";
-                                            content += toTableRow(titleMap[i], (100*percentageMap[i]).toFixed(2) + "%", i);
+                                            content += toTableRow(titleMap[i], (100*percentageMap[i]).toFixed(2) + "%", url, i);
                                         }
                                         content += "</tbody></table>";
                                         cards[i].querySelector(".schedule").innerHTML = content;
@@ -100,12 +102,11 @@
             })
         }
 
-        function toTableRow(movieTitle, percentage, code) {
+        function toTableRow(movieTitle, percentage, url, code) {
             return `
         <tr>
-            <td>\${movieTitle}</td>
+            <td><a href="\${url}/movieDetail?id=\${code}">\${movieTitle}</a></td>
             <td>\${percentage}</td>
-            <td>\${code}<button onclick=""></button></td>
         </tr>
     `;
         }
@@ -114,18 +115,14 @@
 <body>
 
 <div id="div4navbar">
-    <button onclick="location.href='CloseTheater'">go to CloseTheater</button>
-    <button onclick="location.href='CloseTheater'">go to CloseMovie</button>
-    <button onclick="location.href='CloseTheater'">go to AlarmManagement</button>
 </div>
 
-<div class="main-content container-fluid">
+<div class="main-content container-fluid container-sm">
     <div class="container p-5 my-5 border">
         <div class="card p-3 my-3">
             <div class="card-body">
-                <h4 class="card-title">1</h4>
+                <h4 class="card-title">#1</h4>
                 <div class="inside-text distance">
-                    asd
                 </div>
                 <p class="card-text">
                     <div class="inside-text schedule">
@@ -137,9 +134,8 @@
         </div>
         <div class="card p-3 my-3">
             <div class="card-body">
-                <h4 class="card-title">2</h4>
+                <h4 class="card-title">#2</h4>
                 <div class="inside-text distance">
-                    asdddddd
                 </div>
                     <p class="card-text">
                         <div class="inside-text schedule">
@@ -151,9 +147,8 @@
         </div>
         <div class="card p-3 my-3">
             <div class="card-body">
-                <h4 class="card-title">3</h4>
+                <h4 class="card-title">#3</h4>
                 <div class="inside-text distance">
-                    asd
                 </div>
                     <p class="card-text">
                         <div class="inside-text schedule">
