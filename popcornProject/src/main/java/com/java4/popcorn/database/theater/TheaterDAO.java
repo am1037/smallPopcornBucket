@@ -1,5 +1,6 @@
 package com.java4.popcorn.database.theater;
 
+import lombok.Data;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,15 +15,14 @@ public class TheaterDAO {
     @Autowired
     SqlSessionTemplate my;
 
-    //theater Id_company NNNN_CCCCC, theaterVO
     public Map<String, TheaterVO> selectAllTheaterCode(){
         try {
             List<TheaterVO> list = my.selectList("TheaterDAO.selectAllTheater");
-            Map<String, TheaterVO> map = new HashMap<>();
+            Map<String, TheaterVO> theaterMap = new HashMap<>();
             for(TheaterVO vo : list){
-                map.put(vo.getTheater_id() + "_" + vo.getTheater_company(), vo);
+                theaterMap.put(vo.getTheater_id() + "_" + vo.getTheater_company(), vo);
             }
-            return map;
+            return theaterMap;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,4 +60,9 @@ public class TheaterDAO {
         my.update("TheaterDAO.updateTheaterCoordinates", map);
     }
 
+    public TheaterVO selectByTheaterId(String theaterId) {
+        //나중에 새 sql 짜세요!!
+        if(theaterId.length()>4) return my.selectOne("TheaterDAO.selectByTheaterId", theaterId.substring(0,4));
+        return my.selectOne("TheaterDAO.selectByTheaterId", theaterId);
+    }
 }

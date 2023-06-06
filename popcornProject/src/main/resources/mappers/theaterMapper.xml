@@ -24,4 +24,9 @@
         update popcorn.theater set coord_x = #{coord_x}, coord_y = #{coord_y} where theater_id = #{theater_id} and theater_company = #{theater_company}
     </update>
 
+<!--my.selectOne("TheaterDAO.selectByTheaterId", theaterId); 쓰지 않는게 좋겠지만.. 일단 cgv lottecinema의 id 형식이 다른듯하니..-->
+    <select id="selectByTheaterId" resultType="com.java4.popcorn.database.theater.TheaterVO">
+        select * from popcorn.theater where theater_id = #{theaterId}
+    </select>
+
 </mapper>

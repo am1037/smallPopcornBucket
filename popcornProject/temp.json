@@ -1,93 +1,29 @@
 {
-  "status": "OK",
-  "meta": {
-    "totalCount": 1,
-    "page": 1,
-    "count": 1
+  "theater": {
+    "theater_company": "LOTTE",
+    "theater_id": "3044",
+    "theater_name": "롯데시네마 수지",
+    "theater_location": "경기도 용인시 수지구 성복2로 38 (성복동)",
+    "theater_region": "경기",
+    "coord_x": 127.081613,
+    "coord_y": 37.3128099
   },
-  "addresses": [
-    {
-      "roadAddress": "서울특별시 강남구 테헤란로 152 강남파이낸스센터",
-      "jibunAddress": "서울특별시 강남구 역삼동 737 강남파이낸스센터",
-      "englishAddress": "152, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea",
-      "addressElements": [
-        {
-          "types": [
-            "SIDO"
-          ],
-          "longName": "서울특별시",
-          "shortName": "서울특별시",
-          "code": ""
-        },
-        {
-          "types": [
-            "SIGUGUN"
-          ],
-          "longName": "강남구",
-          "shortName": "강남구",
-          "code": ""
-        },
-        {
-          "types": [
-            "DONGMYUN"
-          ],
-          "longName": "역삼동",
-          "shortName": "역삼동",
-          "code": ""
-        },
-        {
-          "types": [
-            "RI"
-          ],
-          "longName": "",
-          "shortName": "",
-          "code": ""
-        },
-        {
-          "types": [
-            "ROAD_NAME"
-          ],
-          "longName": "테헤란로",
-          "shortName": "테헤란로",
-          "code": ""
-        },
-        {
-          "types": [
-            "BUILDING_NUMBER"
-          ],
-          "longName": "152",
-          "shortName": "152",
-          "code": ""
-        },
-        {
-          "types": [
-            "BUILDING_NAME"
-          ],
-          "longName": "강남파이낸스센터",
-          "shortName": "강남파이낸스센터",
-          "code": ""
-        },
-        {
-          "types": [
-            "LAND_NUMBER"
-          ],
-          "longName": "737",
-          "shortName": "737",
-          "code": ""
-        },
-        {
-          "types": [
-            "POSTAL_CODE"
-          ],
-          "longName": "06236",
-          "shortName": "06236",
-          "code": ""
-        }
-      ],
-      "x": "127.0365456",
-      "y": "37.5000263",
-      "distance": 0.0
-    }
-  ],
-  "errorMessage": ""
+  "movieTitleMap": {
+    "20090860": "포켓 몬스터 DP: 아르세우스 초극의 시공으로",
+    "20231592": "분노의 질주: 라이드 오어 다이",
+    "20231496": "가디언즈 오브 갤럭시: Volume 3",
+    "20227890": "슈퍼 마리오 브라더스",
+    "20231959": "부기맨",
+    "20226411": "범죄도시3",
+    "20232025": "트랜스포머: 비스트의 서막"
+  },
+  "screensPercentageMap": {
+    "20226411": 0.5660377358490566,
+    "20232025": 0.3018867924528302,
+    "20090860": 0.05660377358490566,
+    "20231592": 0.018867924528301886,
+    "20231496": 0.018867924528301886,
+    "20227890": 0.018867924528301886,
+    "20231959": 0.018867924528301886
+  }
 }

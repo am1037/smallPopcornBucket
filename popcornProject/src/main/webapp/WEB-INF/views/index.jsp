@@ -44,15 +44,11 @@
                         type: "GET",
                         success: function(data){
                             jason = JSON.parse(data);
-
-                            let cards = document.getElementsByClassName("card-body");
+                            console.log(jason)
+                            let cards = document.querySelectorAll(".card-body");
                             for (let i in cards) {
                                 if (cards[i] instanceof HTMLElement) {
-                                    let element = cards[i].getElementsByClassName("card-title");
-                                    if (element.length > 0) {
-                                        console.log(jason.theaters[i].theater_name)
-                                        element[0].innerHTML = jason.theaters[i].theater_name;
-                                    }
+                                    console.log(cards[i])
                                 }
                             }
 
@@ -70,6 +66,23 @@
             console.log("Geolocation is not supported by this browser.");
         }
 
+        function getScreenPercentages(theater_id, theater_date, callback){
+            $.ajax({
+                url: "calcOrderedPercentages",
+                data: {
+                    theater_Id: theater_id,
+                    theater_date: theater_date
+                },
+                type: "GET",
+                success: function(data){
+                    callback(data)
+                },
+                error: function(xhr, status, err){
+                    console.log("에러발생");
+                }
+            })
+        }
+
     </script>
 </head>
 <body>
@@ -85,21 +98,42 @@
         <div class="card p-3 my-3">
             <div class="card-body">
                 <h4 class="card-title">1</h4>
-                <p class="card-text">거리, 상영정보</p>
+                <p class="card-text">
+                    <div class="inside-text">
+                        asd
+                    </div>
+                    <div class="inside-text">
+
+                    </div>
+                </p>
                 <a href="#" class="card-link">극장 상세정보</a>
             </div>
         </div>
         <div class="card p-3 my-3">
             <div class="card-body">
                 <h4 class="card-title">2</h4>
-                <p class="card-text">거리, 상영정보</p>
+                    <p class="card-text">
+                        <div class="inside-text">
+
+                        </div>
+                        <div class="inside-text">
+
+                        </div>
+                    </p>
                 <a href="#" class="card-link">극장 상세정보</a>
             </div>
         </div>
         <div class="card p-3 my-3">
             <div class="card-body">
                 <h4 class="card-title">3</h4>
-                <p class="card-text">거리, 상영정보</p>
+                    <p class="card-text">
+                        <div class="inside-text">
+
+                        </div>
+                        <div class="inside-text">
+
+                        </div>
+                    </p>
                 <a href="#" class="card-link">극장 상세정보</a>
             </div>
         </div>

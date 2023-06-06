@@ -1,7 +1,7 @@
 package com.java4.popcorn.database.screen;
 
+import lombok.Data;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import java.util.*;

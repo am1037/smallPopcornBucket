@@ -14,6 +14,7 @@ public class MovieMappingVO {
     String my_title;
     String kmdb_url;
     String posters;
+    String kobis_movieCd;
 
     List<String> posterList;
     public void setPosters(String posters) {
