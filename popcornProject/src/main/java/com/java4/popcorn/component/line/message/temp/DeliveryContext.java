@@ -1,4 +1,4 @@
-package com.java4.popcorn.componet.line.message.temp;
+package com.java4.popcorn.component.line.message.temp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

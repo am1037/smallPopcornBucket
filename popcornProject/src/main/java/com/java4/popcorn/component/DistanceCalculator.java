@@ -1,4 +1,4 @@
-package com.java4.popcorn.componet;
+package com.java4.popcorn.component;
 
 import org.springframework.stereotype.Component;
 

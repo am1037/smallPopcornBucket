@@ -1,7 +1,7 @@
-package com.java4.popcorn.componet.line.message;
+package com.java4.popcorn.component.line.message;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.java4.popcorn.componet.line.message.temp.LineMessage;
+import com.java4.popcorn.component.line.message.temp.LineMessage;
 import lombok.Data;
 
 import java.io.File;

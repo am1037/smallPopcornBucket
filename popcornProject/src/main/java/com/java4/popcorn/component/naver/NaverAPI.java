@@ -1,4 +1,4 @@
-package com.java4.popcorn.componet.naver;
+package com.java4.popcorn.component.naver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 @Component
 public class NaverAPI {

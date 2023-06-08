@@ -13,7 +13,7 @@
     </select>
 
     <select id="selectByMovieId" resultType="com.java4.popcorn.database.movie.mapping.MovieMappingVO">
-        select * from popcorn.movie_mapping where docid = #{docid}
+        select * from popcorn.movie_mapping where docid = #{docid} or kobis_movieCd = #{docid}
     </select>
 
 </mapper>

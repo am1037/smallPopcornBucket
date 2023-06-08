@@ -1,4 +1,4 @@
-package com.java4.popcorn.componet.line.message;
+package com.java4.popcorn.component.line.message;
 
 import org.springframework.stereotype.Component;
 

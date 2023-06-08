@@ -24,7 +24,7 @@ public class MovieMappingDAO {
         return my.selectList("MovieMappingDAO.selectByCompany", map);
     }
 
-    public List<MovieMappingVO> selectOneByMovieId(String docid){
+    public List<MovieMappingVO> selectByMovieId(String docid){
         Map<String, String> map = new HashMap<>();
         map.put("docid", docid);
         return my.selectList("MovieMappingDAO.selectByMovieId", map);

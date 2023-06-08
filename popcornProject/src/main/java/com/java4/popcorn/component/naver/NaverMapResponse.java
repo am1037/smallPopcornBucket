@@ -1,4 +1,4 @@
-package com.java4.popcorn.componet.naver;
+package com.java4.popcorn.component.naver;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

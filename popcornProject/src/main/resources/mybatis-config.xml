@@ -7,5 +7,6 @@
         <mapper resource="mappers/movieMappingMapper.xml"/>
         <mapper resource="mappers/screenMapper.xml"/>
         <mapper resource="mappers/theaterMapper.xml"/>
+        <mapper resource="mappers/alarmMapper.xml"/>
     </mappers>
 </configuration>
