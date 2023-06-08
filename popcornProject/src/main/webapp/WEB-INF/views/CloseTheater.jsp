@@ -118,6 +118,7 @@
 
 <div id="div4navbar">
 </div>
+
 <div class="main-content p-1 my-5 container-fluid container-sm">
     <div>
         <h3>개별 극장 검색</h3>

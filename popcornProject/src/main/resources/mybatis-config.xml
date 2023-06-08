@@ -3,10 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+    <plugins>
+        <!-- Pagination plugin -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql" /> <!-- Specify the database dialect -->
+            <property name="reasonable" value="true" /> <!-- Enable reasonable mode -->
+        </plugin>
+    </plugins>
+
     <mappers>
         <mapper resource="mappers/movieMappingMapper.xml"/>
         <mapper resource="mappers/screenMapper.xml"/>
         <mapper resource="mappers/theaterMapper.xml"/>
         <mapper resource="mappers/alarmMapper.xml"/>
     </mappers>
+
 </configuration>

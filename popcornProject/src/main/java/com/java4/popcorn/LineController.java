@@ -13,7 +13,7 @@ public class LineController {
     @Autowired
     LineAPI lineAPI;
 
-    String url = "https://a423-115-137-12-120.ngrok-free.app/popcornProject_war_exploded/";
+    String url = "https://3866-115-137-12-120.ngrok-free.app/popcornProject_war_exploded/";
 
     public String getUrl() {
         return url;

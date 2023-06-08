@@ -65,4 +65,22 @@ public class TheaterDAO {
         if(theaterId.length()>4) return my.selectOne("TheaterDAO.selectByTheaterId", theaterId.substring(0,4));
         return my.selectOne("TheaterDAO.selectByTheaterId", theaterId);
     }
+
+    public List<TheaterVO> selectTheaterByKeyword(String keyword) {
+        return my.selectList("TheaterDAO.selectTheaterByKeyword", keyword);
+    }
+
+    public List<TheaterVO> selectTheaterByKeyword(String keyword, int pageNumber, int pageSize) {
+        //nowwhat?
+        int pageOffset = (pageNumber - 1) * pageSize;
+        Map<String, Object> params = new HashMap<>();
+        params.put("keyword", keyword);
+        params.put("pageOffset", pageOffset);
+        params.put("pageSize", pageSize);
+        return my.selectList("TheaterDAO.selectTheaterByKeywordPage", params);
+    }
+
+    public int selectTheaterByKeywordCount(String keyword) {
+        return my.selectOne("TheaterDAO.selectTheaterByKeywordPageCount", keyword);
+    }
 }

@@ -20,6 +20,26 @@
         select distinct theater_region from popcorn.theater t
     </select>
 
+    <select id="selectTheaterByKeyword" resultType="com.java4.popcorn.database.theater.TheaterVO">
+        select * from popcorn.theater where theater_name like concat('%', #{keyword}, '%')
+        or theater_location like concat('%', #{keyword}, '%')
+        or theater_region like concat('%', #{keyword}, '%')
+    </select>
+
+    <select id="selectTheaterByKeywordPage" resultType="com.java4.popcorn.database.theater.TheaterVO">
+        select * from popcorn.theater where theater_name like concat('%', #{keyword}, '%')
+        or theater_location like concat('%', #{keyword}, '%')
+        or theater_region like concat('%', #{keyword}, '%')
+        LIMIT #{pageSize} OFFSET #{pageOffset}
+    </select>
+
+    <select id="selectTheaterByKeywordPageCount" resultType="int">
+        select count(*) from popcorn.theater where
+        theater_name like concat('%', #{keyword}, '%')
+        or theater_location like concat('%', #{keyword}, '%')
+        or theater_region like concat('%', #{keyword}, '%')
+    </select>
+
     <update id="updateTheaterCoordinates">
         update popcorn.theater set coord_x = #{coord_x}, coord_y = #{coord_y} where theater_id = #{theater_id} and theater_company = #{theater_company}
     </update>
